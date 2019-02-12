@@ -1,3 +1,6 @@
+# esminify2
+从esminify(3.0.5)修改过来
+
 # esminify
 
 [![snyk status](https://snyk.io/test/github/estools2/esminify/badge.svg?style=flat-square)](https://snyk.io/test/github/estools2/esminify)

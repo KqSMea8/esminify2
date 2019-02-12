@@ -145,7 +145,10 @@ function minify(opt, callback) {
     exclude = exclude.concat([
       /\.git\//,
       /\.svn\//,
-      /node_modules\//
+      // /node_modules\//,
+      /node_modules\/codepage\//,
+      /node_modules\/xlsx\//,
+      /node_modules\/mysql2\//,
     ]);
   }
 
@@ -179,10 +182,10 @@ function minify(opt, callback) {
     var errs = [];
     fs.walk(src, function (file) {
       var relfile = file.substr(src.length);
-      if (checkExclude(relfile)) {
-        // console.log('exclude:', relfile);
-        return false;
-      }
+      // if (checkExclude(relfile)) {
+      //   console.log('exclude:', relfile);
+      //   return false;
+      // }
       return true;
     }, function (err, file, done) {
       if (err) {
@@ -191,6 +194,12 @@ function minify(opt, callback) {
       }
       var relfile = file.substr(src.length);
       if (!/\.js$/.test(file)) {
+        log.info('copy file:', relfile);
+        fs.sync().save(path.join(dest, relfile), fs.readFileSync(file));
+        return done();
+      }
+      if (checkExclude(relfile)) {
+        console.log('exclude:', relfile);
         log.info('copy file:', relfile);
         fs.sync().save(path.join(dest, relfile), fs.readFileSync(file));
         return done();
