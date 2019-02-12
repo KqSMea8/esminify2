@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/estools2/esminify.git"
+    "url": "git+https://github.com/songqy/esminify2.git"
   },
   "keywords": [
     "es6",
@@ -17,15 +17,7 @@
   "bin": {
     "esminify": "bin/esminify"
   },
-  "maintainers": [
-    "yuzhigang33",
-    "fishbar <zhengxinlin@gmail.com>"
-  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/estools2/esminify/issues"
-  },
-  "homepage": "https://github.com/estools2/esminify#readme",
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-minify": "0.3.0",
