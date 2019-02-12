@@ -146,6 +146,7 @@ function minify(opt, callback) {
       /\.git\//,
       /\.svn\//,
       // /node_modules\//,
+      // 以下包不进行混淆
       /node_modules\/codepage\//,
       /node_modules\/xlsx\//,
       /node_modules\/mysql2\//,
@@ -198,6 +199,7 @@ function minify(opt, callback) {
         fs.sync().save(path.join(dest, relfile), fs.readFileSync(file));
         return done();
       }
+      // 不需要混淆的直接复制文件
       if (checkExclude(relfile)) {
         console.log('exclude:', relfile);
         log.info('copy file:', relfile);
